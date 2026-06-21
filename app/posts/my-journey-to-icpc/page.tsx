@@ -12,7 +12,7 @@ export default function PostPage() {
 
         {/* Meta */}
         <p className="text-sm text-stone-500 !mt-0">
-          Competitive Programming • ICPC Northern Finals 2025
+          Competitive Programming • ICPC Northern Finals 2025 • 17th June
         </p>
 
         <hr className="my-8 border-stone-200" />
@@ -25,8 +25,7 @@ export default function PostPage() {
         </p>
 
         <p>
-          Our team managed to qualify for the next stage — ICPC World Finals — which was both
-          exciting and a bit unexpected. However, I still have 3 years ahead to improve and
+          Our team did not manage to qualify for the next stage — ICPC World Finals — which was okey, because I still have 3 years ahead to improve and
           gain more experience in solving challenging problems.
         </p>
 
@@ -39,22 +38,21 @@ export default function PostPage() {
         </p>
 
         <p>
-          To track my progress, I started recording my journey. On my YouTube channel:
+          To track my progress, I started recording my journey. On my YouTube channel: 
           <a
             href="https://www.youtube.com/@zhassyn"
             target="_blank"
             className="text-teal-600 hover:underline"
           >
-            @zhassyn
+            zhassyn
           </a>,
           I posted my first video called <strong>“Road to ICPC Finals”</strong>,
           where I explain my goals and current progress.
         </p>
 
         <p>
-          The next video will come after a month, since in competitive programming
-          progress is slow but meaningful — most improvement comes from consistent contest practice
-          and upsolving problems.
+          The next video will come after a month, since competitive programming is not so exciting as 
+          other sports. So it is going to have the overall progress i have made in a month. 
         </p>
 
       </article>
