@@ -10,7 +10,8 @@ const About = () => {
             alt="Zhassyn"
             width={200}
             height={200}
-            className="rounded-full"
+            className="rounded-full object-cover"
+            priority
         />
 
         <div className="space-y-4">

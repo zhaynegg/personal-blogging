@@ -12,6 +12,7 @@ export default function Home() {
           width={220}
           height={220}
           className="rounded-full object-cover shadow-lg"
+          priority
         />
 
         {/* Text */}

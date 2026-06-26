@@ -9,6 +9,12 @@ export default function BlogPage() {
         title="My Journey to ICPC Finals"
         description="Reflections on contests, failures and lessons learned."
       />
+      <PostCard
+        href="/posts/i-hate-these-books"
+        date="June 26, 2026"
+        title="The books I hate"
+        description="Complaining about the feelings I felt while reading books."
+      />
     </div>
   );
 }
