@@ -6,7 +6,7 @@ export default function PostPage() {
       <article className="prose prose-stone lg:prose-lg mx-auto px-6 py-16 leading-relaxed max-w-2xl">
 
         {/* Title */}
-        <h1 className="!mb-4">
+        <h1 className="!mb-4 text-4xl font-bold tracking-tight">
           The books I hate
         </h1>
 
