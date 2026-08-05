@@ -1,5 +1,6 @@
 // app/posts/[slug]/page.tsx
-
+'use client'
+import Giscus from '@giscus/react';
 export default function PostPage() {
   return (
     <div className="bg-stone-50 min-h-screen">
@@ -47,6 +48,22 @@ export default function PostPage() {
             I hope that my next book will be more soothing.
         </p>
       </article>
+
+      <Giscus
+        id="comments"
+        repo="zhaynegg/personal-blogging"
+        repoId="R_kgDOTA7ntQ"
+        category="Announcements"
+        categoryId="DIC_kwDOTA7ntc4DCJ4M"
+        mapping="url"
+        term="Welcome to @giscus/react component!"
+        reactionsEnabled="1"
+        emitMetadata="0"
+        inputPosition="top"
+        theme="light"
+        lang="en"
+        loading="lazy"
+      />
     </div>
   );
 }
