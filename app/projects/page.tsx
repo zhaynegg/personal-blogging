@@ -1,9 +1,17 @@
-import React from 'react'
+import PageLayout from "@/components/PageLayout";
 
-const projects = () =>{
-    return (
-        <div>My projects</div>
-    )
+export const metadata = {
+  title: "Projects",
+};
+
+export default function ProjectsPage() {
+  return (
+    <PageLayout
+      title="Projects"
+      kicker="Building"
+      lead="Things I am building, in progress and finished."
+    >
+      <p className="text-muted">Nothing here yet.</p>
+    </PageLayout>
+  );
 }
-
-export default projects

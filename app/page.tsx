@@ -1,10 +1,10 @@
-
 import Image from "next/image";
+import PageLayout from "@/components/PageLayout";
 
 export default function Home() {
   return (
-    <div className="space-y-10">
-      <section className="flex flex-col md:flex-row items-center gap-10">
+    <PageLayout>
+      <section className="flex flex-col items-center gap-10 md:flex-row">
         {/* Profile picture */}
         <Image
           src="/images/profile2.jpeg"
@@ -17,22 +17,22 @@ export default function Home() {
 
         {/* Text */}
         <div className="space-y-4">
-          <h1 className="text-5xl font-bold tracking-tight">
+          <h1 className="font-serif text-[clamp(2.25rem,5vw,3.5rem)] font-bold leading-[1.05] tracking-[-0.02em]">
             Hi, I'm Zhassyn Yegnay.
           </h1>
 
-          <p className="text-xl text-stone-600 max-w-2xl leading-relaxed">
+          <p className="max-w-2xl text-lg leading-relaxed text-muted">
             Computer Science student, competitive programmer, and AI enthusiast.
             I write about software engineering, algorithms, and the projects I'm
             building.
           </p>
 
-          <p className="text-xl text-stone-600 max-w-2xl leading-relaxed">
+          <p className="max-w-2xl text-lg leading-relaxed text-muted">
             Here, I am going to share my thoughts and experiences, so feel free
             to explore my blog.
           </p>
         </div>
       </section>
-    </div>
+    </PageLayout>
   );
 }

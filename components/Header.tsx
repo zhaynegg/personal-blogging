@@ -2,19 +2,22 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="border-b border-stone-200">
-      <div className="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link
-          href="/"
-          className="text-xl font-bold tracking-tight"
-        >
+    <header className="sticky top-0 z-50 h-16 border-b border-line bg-paper/85 backdrop-blur">
+      <div className="mx-auto flex h-full max-w-5xl items-center justify-between px-6">
+        <Link href="/" className="font-serif text-xl font-bold tracking-tight">
           Zhassyn🫪
         </Link>
 
-        <nav className="flex gap-6 text-stone-600">
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-          <Link href="/posts">Blog</Link>
+        <nav className="flex gap-6 text-sm text-muted">
+          <Link href="/" className="hover:text-ink">
+            Home
+          </Link>
+          <Link href="/about" className="hover:text-ink">
+            About
+          </Link>
+          <Link href="/posts" className="hover:text-ink">
+            Blog
+          </Link>
         </nav>
       </div>
     </header>
