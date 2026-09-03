@@ -22,6 +22,18 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "swimming-insights",
+    title: "New insight I have learned about swimming",
+    date: "2026-09-01",
+    displayDate: "1 September 2026",
+    category: "Sport",
+    description: "The thing I would have known earlier",
+    hero: {
+      src: "/images/underwater-push-off.svg",
+      alt: "Group picture from the M&C camp",
+    },
+  },
+  {
     slug: "my-first-camp-as-trainer",
     title: "My first camp as a trainer",
     date: "2026-07-26",
