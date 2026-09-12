@@ -18,9 +18,23 @@ export type Post = {
     alt: string;
     credit?: string;
   };
+  /**
+   * Still being written. The card on the blog index gets cordoned off with
+   * barrier tape and the post itself opens on a building site.
+   */
+  underConstruction?: boolean;
 };
 
 export const posts: Post[] = [
+  {
+    slug: "creating-my-second-pet-project",
+    title: "Talking about my website",
+    date: "2026-09-08",
+    displayDate: "8 September 2026",
+    category: "Education",
+    description: "Talking about the creation process",
+    underConstruction: true,
+  },
   {
     slug: "swimming-insights",
     title: "New insight I have learned about swimming",

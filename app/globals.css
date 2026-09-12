@@ -15,6 +15,13 @@
   /* Cover colours: dark backdrop behind post titles */
   --color-night: #29303c;
   --color-kicker: #dde4ea;
+
+  /* Building-site colours, for posts that are still under construction */
+  --color-hazard: #f5c518;
+  --color-hazard-ink: #16150f;
+  --color-hazard-line: #d9c473;
+  --color-hazard-paper: #fdfaef;
+  --color-rubble: #1e2126;
 }
 
 @layer base {
@@ -92,4 +99,105 @@
   font-size: 0.8125rem;
   color: var(--color-muted);
   margin-top: 0.75rem;
+}
+
+
+/* ---------------------------------------------------------------------------
+   Under construction: barrier tape, site hatching and drifting dust.
+   Used by components/ConstructionScene.tsx for work-in-progress posts.
+   --------------------------------------------------------------------------- */
+
+/* Yellow/black barrier tape. Works at any size, horizontal or vertical. */
+.hazard-tape {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--color-hazard-ink) 0 0.75rem,
+    var(--color-hazard) 0.75rem 1.5rem
+  );
+}
+
+/* Stripes march sideways while the cordoned-off card is hovered. */
+@keyframes hazard-march {
+  to {
+    /* 1.5rem stripe period across a 45 deg gradient = 1.5 * sqrt(2) */
+    background-position: 2.1213rem 0;
+  }
+}
+
+.wip-card:hover .hazard-tape,
+.wip-card:focus-visible .hazard-tape {
+  animation: hazard-march 1.4s linear infinite;
+}
+
+/* Faint diagonal hatching, like markings sprayed on a closed-off plot. */
+.wip-hatch {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(160, 124, 16, 0.09) 0 6px,
+    transparent 6px 15px
+  );
+}
+
+/* Specks of dust lifting off the site and drifting away. */
+@keyframes dust-rise {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.5);
+  }
+  12% {
+    opacity: var(--dust-peak, 0.4);
+  }
+  78% {
+    opacity: var(--dust-peak, 0.4);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--dust-x, 2rem), calc(-1 * var(--dust-rise, 70svh)), 0)
+      scale(1.2);
+  }
+}
+
+.dust-mote {
+  animation-name: dust-rise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+/* The low haze the motes rise out of. */
+@keyframes dust-haze {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translate3d(-2%, 0, 0) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate3d(3%, -3%, 0) scale(1.15);
+  }
+}
+
+.dust-haze {
+  background: radial-gradient(
+      60% 70% at 25% 100%,
+      rgba(214, 199, 170, 0.5),
+      transparent 70%
+    ),
+    radial-gradient(55% 65% at 75% 100%, rgba(198, 186, 162, 0.42), transparent 72%);
+  filter: blur(14px);
+  animation: dust-haze 18s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dust-mote,
+  .dust-haze,
+  .wip-card:hover .hazard-tape,
+  .wip-card:focus-visible .hazard-tape {
+    animation: none;
+  }
+
+  .dust-mote {
+    opacity: var(--dust-peak, 0.4);
+    transform: translate3d(0, calc(-0.5 * var(--dust-rise, 70svh)), 0);
+  }
 }
