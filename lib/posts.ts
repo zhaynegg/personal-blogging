@@ -27,13 +27,27 @@ export type Post = {
 
 export const posts: Post[] = [
   {
-    slug: "creating-my-second-pet-project",
-    title: "Talking about my website",
-    date: "2026-09-08",
-    displayDate: "8 September 2026",
-    category: "Education",
-    description: "Talking about the creation process",
+    slug: "creating-my-second-pet-project-pt2",
+    title: "I mapped Astana’s shadows pt.2",
+    date: "2026-09-15",
+    displayDate: "15 September 2026",
+    category: "Side Projects",
+    description:
+      "Finishing the project - learning new things on the way",
     underConstruction: true,
+  },
+  {
+    slug: "creating-my-second-pet-project",
+    title: "I mapped Astana’s shadows",
+    date: "2026-09-15",
+    displayDate: "15 September 2026",
+    category: "Side Projects",
+    description:
+      "Building shadow-path, a walking router that keeps you out of the sun — and what the data taught me on the way.",
+    hero: {
+      src: "/images/shade-route-cover.svg",
+      alt: "Minimalistic view of the website",
+    },
   },
   {
     slug: "swimming-insights",
@@ -44,7 +58,7 @@ export const posts: Post[] = [
     description: "The thing I would have known earlier",
     hero: {
       src: "/images/underwater-push-off.svg",
-      alt: "Group picture from the M&C camp",
+      alt: "Some creature swimming in the pool",
     },
   },
   {
