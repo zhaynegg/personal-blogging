@@ -38,14 +38,6 @@ export default function About() {
     <PageLayout>
       <div className="space-y-14">
         <section className="flex flex-col items-center gap-8 md:flex-row md:items-start">
-          <Image
-            src="/images/profile.jpg"
-            alt="Zhassyn"
-            width={200}
-            height={200}
-            className="rounded-full object-cover"
-            priority
-          />
 
           <div className="space-y-4">
             <h1 className="font-serif text-[clamp(2.25rem,5vw,3.5rem)] font-bold leading-[1.05] tracking-[-0.02em]">

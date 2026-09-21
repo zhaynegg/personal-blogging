@@ -7,7 +7,7 @@ export default function Home() {
       <section className="flex flex-col items-center gap-10 md:flex-row">
         {/* Profile picture */}
         <Image
-          src="/images/profile2.jpeg"
+          src="/images/profile22.jpg"
           alt="Zhassyn Yegnay"
           width={220}
           height={220}
