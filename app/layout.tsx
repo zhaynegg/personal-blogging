@@ -40,10 +40,11 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
     >
       <body className="flex min-h-screen flex-col">
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <Header />
 
         {/* No container here — post covers need the full width. */}
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">{children}</main>
 
         <Footer />
       </body>

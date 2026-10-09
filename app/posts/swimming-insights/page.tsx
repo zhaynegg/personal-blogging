@@ -41,7 +41,7 @@ export default function PostPage() {
         goal closing 50 meters within 30 seconds. This will allow me to join swimming club that
         participates in swimming competitions. At the moment of me writing this post, I spend 40 seconds
         to swim 50 meters. I do not have any coach who could possibly point my weaknesses. That is why, I started reading a book
-        called "Swim speed secrets for swimmers and thriathletes" by Sheila Taormina. She is 4 time olympian and thriatlon
+        called &quot;Swim speed secrets for swimmers and thriathletes&quot; by Sheila Taormina. She is 4 time olympian and thriatlon
         world champion. The first thing I found in her book is that the most important element in swimming is pull
         that moves you forward. That pull should to be strong to swim faster. It seems obvious, but how to make
         my pull stronger if it did not change after the whole year of swimming. Fortunately, I did my pull 

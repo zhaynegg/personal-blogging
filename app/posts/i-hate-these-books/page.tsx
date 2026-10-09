@@ -22,10 +22,10 @@ export default function PostPage() {
       </p>
 
       <p>
-        The first book was "The Green Mile". I had watched the movie in my
+        The first book was &quot;The Green Mile&quot;. I had watched the movie in my
         childhood, and I loved its sincerity. I expected the same story in the
         book, and my expectations were met. Unfortunately, I cannot say the same
-        about the next two books: "Frankenstein" and "Wuthering Heights". There
+        about the next two books: &quot;Frankenstein&quot; and &quot;Wuthering Heights&quot;. There
         is no happiness at all. The main characters are ill-headed. The problem
         is that in the beginning, everything is normal. We see Victor, who wants
         to stay alone and create innovations, and Heathcliff and his sister, who

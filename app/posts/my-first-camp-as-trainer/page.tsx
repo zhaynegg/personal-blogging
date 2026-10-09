@@ -1,4 +1,3 @@
-import Image from "next/image";
 import PostLayout from "@/components/PostLayout";
 import { getPost } from "@/lib/posts";
 
@@ -37,7 +36,7 @@ export default function PostPage() {
       <h2>The experience I have gained</h2>
 
       <p>
-        I can't tell that I have learned something about coaching. I am doing it
+        I can&apos;t tell that I have learned something about coaching. I am doing it
         over the last year working individually and with group of students. Here
         we exchange with groups and work with 4-5 students at a time. They solve
         their problems and all I need to do is navigate them through the

@@ -6,11 +6,11 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-serif-display), ui-serif, Georgia, serif;
 
-  --color-paper: #fafaf9;
-  --color-ink: #1c1917;
-  --color-muted: #78716c;
-  --color-line: #e7e5e4;
-  --color-accent: #0f766e;
+  --color-paper: #f8f7f4;
+  --color-ink: #252720;
+  --color-muted: #625f58;
+  --color-line: #e2dfd7;
+  --color-accent: #245d53;
 
   /* Cover colours: dark backdrop behind post titles */
   --color-night: #29303c;
@@ -43,6 +43,30 @@
   a {
     transition: color 0.2s, opacity 0.2s;
   }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 5px;
+  }
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  transform: translateY(-200%);
+  border-radius: 4px;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  padding: 10px 16px;
+  font-size: 14px;
+}
+
+.skip-link:focus { transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
 
 /* Reading column of a post: serif, generous line height. */

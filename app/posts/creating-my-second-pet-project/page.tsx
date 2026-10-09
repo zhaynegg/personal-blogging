@@ -12,6 +12,12 @@ export const metadata = {
 export default function PostPage() {
   return (
     <PostLayout post={post}>
+      <aside aria-label="Project update" className="mb-10 rounded-lg border border-accent/20 bg-accent/5 p-5 font-sans text-base leading-relaxed">
+        <strong>Update — 9 October 2026:</strong> shadow-path is now live.{" "}
+        <a href="https://shadow-path-web.onrender.com" target="_blank" rel="noopener noreferrer">
+          Try the app
+        </a>.
+      </aside>
       <h2>How it started</h2>
       <p>
         Astana is famous for being one of the coldest capitals in the world.
@@ -136,12 +142,12 @@ export default function PostPage() {
         — it was the app no longer lying about the route it already had.
       </p>
 
-      <h2>Where it is now</h2>
+      <h2>Where it stood when I wrote this</h2>
       <p>
         It works end to end for Astana. The map opens on the current hour with
         today’s shadows over the whole city, a job rebuilds them every night,
         and you can ask it when to leave and it will scan the entire day for
-        you. It is not deployed yet.
+        you. It was not deployed at the time of writing.
       </p>
       <p>
         Beyond the tasks I mentioned earlier, I need to deal with how much
