@@ -1,6 +1,7 @@
-import Image from "next/image";
-import Link from "next/link";
 import PageLayout from "@/components/PageLayout";
+import ProjectCard from "@/components/ProjectCard";
+import ShadowPathDemo from "@/components/ShadowPathDemo";
+import UrlShortenerDemo from "@/components/UrlShortenerDemo";
 
 export const metadata = {
   title: "Projects",
@@ -33,61 +34,22 @@ export default function ProjectsPage() {
       kicker="Building"
       lead="Software shaped by problems I want to solve."
     >
-      <div className="space-y-20">
-        <article className="space-y-10" aria-labelledby="shadow-path-title">
-          <div className="space-y-5">
-            <p className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-3 py-1.5 text-xs font-medium text-accent">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
-              Live · Astana, Kazakhstan
-            </p>
-
-            <div className="space-y-3">
-              <h2 id="shadow-path-title" className="font-serif text-4xl font-bold tracking-tight sm:text-5xl">
-                shadow-path
-              </h2>
-              <p className="font-serif text-2xl leading-snug">
-                A cooler way to walk through Astana.
-              </p>
-              <p className="max-w-2xl leading-relaxed text-muted">
-                Summer walks gave me a reason to build a walking router. Choose a
-                start, a destination, and a departure time; shadow-path finds a
-                route through shade and shows what the detour costs.
-              </p>
-            </div>
-
-            <ul className="flex flex-wrap gap-x-5 gap-y-2 text-xs font-medium uppercase tracking-[0.12em] text-muted" aria-label="Project focus">
-              <li>OpenStreetMap</li>
-              <li>Geospatial data</li>
-              <li>Time-dependent routing</li>
-            </ul>
-
-            <a
-              href="https://shadow-path-web.onrender.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-accent/90"
-            >
-              Try shadow-path <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-
-          <figure>
-            <div className="overflow-hidden rounded-2xl border border-line bg-line">
-              <Image
-                src="/images/SP-website-page-2.png"
-                alt="Shadow-path showing a blue walking route through Astana, with building and tree shadows and a comparison of route distance and shade."
-                width={2910}
-                height={1640}
-                sizes="(min-width: 768px) 45rem, calc(100vw - 3rem)"
-                className="h-auto w-full"
-              />
-            </div>
-            <figcaption className="mt-3 text-sm leading-relaxed text-muted">
-              The working app: city shadows, departure planning, and a side-by-side
-              route comparison.
-            </figcaption>
-          </figure>
-
+      <div className="space-y-10">
+        <ProjectCard
+          id="shadow-path-title"
+          title="shadow-path"
+          status="Live · Astana, Kazakhstan"
+          tagline="A cooler way to walk through Astana."
+          description="Summer walks gave me a reason to build a walking router. Choose a start, a destination, and a departure time; shadow-path finds a route through shade and shows what the detour costs."
+          technologies={["OpenStreetMap", "Geospatial data", "Time-dependent routing"]}
+          preview={<ShadowPathDemo />}
+          projectUrl="https://shadow-path-web.onrender.com"
+          projectLabel="Try shadow-path"
+          secondaryLink={{
+            href: "/posts/creating-my-second-pet-project",
+            label: "Read the build story",
+          }}
+        >
           <section aria-labelledby="engineering-decisions" className="space-y-6">
             <h3 id="engineering-decisions" className="font-serif text-2xl font-bold tracking-tight">
               A few decisions behind the map
@@ -108,57 +70,24 @@ export default function ProjectsPage() {
               ))}
             </ol>
           </section>
+        </ProjectCard>
 
-          <Link
-            href="/posts/creating-my-second-pet-project"
-            className="inline-flex items-center gap-2 text-sm font-medium text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent"
-          >
-            Read the build story <span aria-hidden="true">↗</span>
-          </Link>
-        </article>
-
-        <article className="space-y-6 rounded-2xl border border-line bg-accent/5 p-6 sm:p-8" aria-labelledby="url-shortener-title">
-          <div className="space-y-5">
-            <p className="inline-flex items-center gap-2 rounded-full border border-accent/20 px-3 py-1.5 text-xs font-medium text-accent">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
-              Live · gettinyurl.my
-            </p>
-
-            <div className="space-y-3">
-              <h2 id="url-shortener-title" className="font-serif text-3xl font-bold tracking-tight sm:text-4xl">
-                URL shortener
-              </h2>
-              <p className="max-w-2xl leading-relaxed text-muted">
-                An account-based tool that turns long URLs into short, shareable
-                links. Sign in to shorten a URL and return to your saved links.
-              </p>
-            </div>
-
-            <ul className="flex flex-wrap gap-x-5 gap-y-2 text-xs font-medium uppercase tracking-[0.12em] text-muted" aria-label="URL shortener technologies">
-              <li>Python</li>
-              <li>HTML</li>
-            </ul>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-            <a
-              href="https://www.gettinyurl.my"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-accent/90"
-            >
-              Try URL shortener <span aria-hidden="true">↗</span>
-            </a>
-            <a
-              href="https://github.com/zhaynegg/URL-shortener"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-medium text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent"
-            >
-              View source <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </article>
+        <ProjectCard
+          id="url-shortener-title"
+          title="URL shortener"
+          status="Live · gettinyurl.my"
+          tagline="Long links, made easy to share."
+          description="An account-based tool that turns long URLs into short, shareable links. Sign in to shorten a URL and return to your saved links."
+          technologies={["Python", "HTML"]}
+          preview={<UrlShortenerDemo />}
+          projectUrl="https://www.gettinyurl.my"
+          projectLabel="Try URL shortener"
+          secondaryLink={{
+            href: "https://github.com/zhaynegg/URL-shortener",
+            label: "View source",
+            external: true,
+          }}
+        />
       </div>
     </PageLayout>
   );

@@ -1,0 +1,162 @@
+.mapButton {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  align-content: center;
+  overflow: hidden;
+  padding: 0;
+  cursor: pointer;
+  appearance: none;
+  border: 1px solid var(--color-line);
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--color-line) 62%, var(--color-paper));
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color 240ms, box-shadow 240ms;
+}
+
+.mapButton:hover {
+  border-color: color-mix(in srgb, var(--color-accent) 40%, var(--color-line));
+  box-shadow: 0 2px 10px color-mix(in srgb, var(--color-accent) 5%, transparent);
+}
+
+.mapButton:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline-offset: 3px;
+}
+
+.map {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ground {
+  fill: color-mix(in srgb, var(--color-line) 62%, var(--color-paper));
+}
+
+.streets {
+  fill: none;
+  stroke: var(--color-paper);
+  stroke-width: 23;
+  stroke-linejoin: round;
+}
+
+.streetLines {
+  fill: none;
+  stroke: var(--color-line);
+  stroke-width: 1;
+  stroke-dasharray: 5 8;
+}
+
+.building {
+  fill: var(--color-paper);
+  stroke: color-mix(in srgb, var(--color-muted) 20%, var(--color-paper));
+  stroke-width: 1;
+}
+
+.shadow {
+  fill: var(--color-accent);
+  opacity: 0.12;
+}
+
+.roofLine {
+  stroke: var(--color-line);
+  stroke-width: 1;
+}
+
+.park {
+  fill: color-mix(in srgb, var(--color-accent) 16%, var(--color-paper));
+}
+
+.parkPath {
+  fill: none;
+  stroke: var(--color-paper);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.canopies {
+  fill: var(--color-accent);
+  opacity: 0.14;
+}
+
+.parkLabel {
+  fill: var(--color-accent);
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.route,
+.routeHalo {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  animation: draw-route 1.15s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+}
+
+.routeHalo {
+  stroke: var(--color-paper);
+  stroke-width: 10;
+}
+
+.route {
+  stroke: var(--color-accent);
+  stroke-width: 4;
+}
+
+.endpoint circle {
+  fill: var(--color-accent);
+  stroke: var(--color-paper);
+  stroke-width: 4;
+  transition: stroke-width 0.2s;
+}
+
+.endpoint text {
+  fill: var(--color-paper);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.mapButton:hover .endpoint circle {
+  stroke-width: 5;
+}
+
+.compass {
+  fill: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 9px;
+}
+
+.compass path {
+  fill: none;
+  stroke: var(--color-muted);
+  stroke-width: 1;
+}
+
+@keyframes draw-route {
+  from {
+    stroke-dashoffset: 1;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route,
+  .routeHalo {
+    animation: none;
+  }
+
+  .mapButton,
+  .endpoint circle {
+    transition: none;
+  }
+}
