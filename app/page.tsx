@@ -1,8 +1,13 @@
+import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { sortedPosts } from "@/lib/posts";
+import { getProblemSolvingStats, type PlatformStat } from "@/lib/problemSolving";
 import styles from "./home.module.css";
+
+// Rebuild the page every 12 hours so the problem-solving counts stay current.
+export const revalidate = 43200;
 
 export const metadata: Metadata = {
   title: { absolute: "Zhassyn Yegnay — Algorithms, software & curiosity" },
@@ -18,8 +23,51 @@ function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   );
 }
 
-export default function Home() {
+function formatList(items: string[]) {
+  return items.length < 2 ? items.join("") : `${items.slice(0, -1).join(", ")} and ${items.at(-1)}`;
+}
+
+function PlatformCard({ platform }: { platform: PlatformStat }) {
+  const content = (
+    <>
+      <span className={styles.platformName}>
+        {platform.name}
+        {platform.url && <Arrow diagonal />}
+      </span>
+      <span className={styles.platformCount}>
+        {platform.solved.toLocaleString("en-US")}
+        {platform.outOf ? (
+          <span className={styles.platformOutOf}> / {platform.outOf}</span>
+        ) : (
+          <span className={styles.platformUnit}>solved</span>
+        )}
+      </span>
+      {platform.detail && (
+        <span className={styles.platformDetail}>
+          {platform.rankColor && <i aria-hidden="true" />}
+          {platform.detail}
+        </span>
+      )}
+      {platform.subDetail && <span className={styles.platformSubDetail}>{platform.subDetail}</span>}
+    </>
+  );
+
+  const className = platform.rankColor ? `${styles.platformCard} ${styles.ranked}` : styles.platformCard;
+  const style = platform.rankColor ? ({ "--rank": platform.rankColor } as CSSProperties) : undefined;
+
+  return platform.url ? (
+    <a href={platform.url} target="_blank" rel="noopener noreferrer" className={className} style={style}>
+      {content}
+    </a>
+  ) : (
+    <div className={className} style={style}>{content}</div>
+  );
+}
+
+export default async function Home() {
   const recentPosts = sortedPosts.filter((post) => !post.underConstruction).slice(0, 3);
+  const solving = await getProblemSolvingStats();
+  const liveSources = solving.platforms.filter((p) => p.live).map((p) => p.name);
 
   return (
     <div className={styles.home}>
@@ -73,6 +121,30 @@ export default function Home() {
           <span className={styles.highlightDetail}>M&amp;C programming camp · 2026</span>
         </div>
       </div>
+
+      {solving.platforms.length > 0 && (
+        <section className={styles.solving} aria-labelledby="solving-heading">
+          <div className={styles.sectionHeading}>
+            <div>
+              <p className={styles.eyebrow}>Problem solving</p>
+              <h2 id="solving-heading">
+                <span className={styles.solvingTotal}>{solving.totalSolved.toLocaleString("en-US")}</span> problems
+                solved, and counting.
+              </h2>
+            </div>
+          </div>
+          <ul className={styles.platformGrid} aria-label="Problems solved by platform">
+            {solving.platforms.map((platform) => (
+              <li key={platform.name}><PlatformCard platform={platform} /></li>
+            ))}
+          </ul>
+          {liveSources.length > 0 && (
+            <p className={styles.solvingNote}>
+              {formatList(liveSources)} {liveSources.length === 1 ? "updates" : "update"} automatically every 12 hours.
+            </p>
+          )}
+        </section>
+      )}
 
       <section className={styles.work} aria-labelledby="work-heading">
         <div className={styles.sectionHeading}>

@@ -177,8 +177,151 @@
   color: var(--color-muted);
 }
 
-.work, .writing {
+.solving, .work, .writing {
   margin-top: 72px;
+}
+
+.solvingTotal {
+  color: var(--color-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.platformGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.platformGrid li {
+  display: flex;
+}
+
+.platformCard {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 22px 24px 24px;
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  background: #fffdf9;
+}
+
+a.platformCard {
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+a.platformCard:hover {
+  border-color: color-mix(in srgb, var(--color-accent) 45%, var(--color-line));
+  transform: translateY(-2px);
+}
+
+/* Rated platforms take on their rank colour (e.g. Codeforces violet). */
+.ranked {
+  --rank-ink: color-mix(in srgb, var(--rank) 72%, #000);
+  border-color: color-mix(in srgb, var(--rank) 28%, var(--color-line));
+  background: color-mix(in srgb, var(--rank) 7%, #fffdf9);
+  box-shadow: inset 0 4px 0 var(--rank);
+}
+
+a.ranked:hover {
+  border-color: color-mix(in srgb, var(--rank) 60%, var(--color-line));
+}
+
+.ranked .platformName,
+.ranked .platformCount,
+.ranked .platformDetail {
+  color: var(--rank-ink);
+}
+
+a.ranked:hover .platformName svg {
+  color: var(--rank-ink);
+}
+
+.platformName {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-accent);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.platformName svg {
+  width: 15px;
+  height: 15px;
+  color: var(--color-muted);
+  transition: color 0.2s, transform 0.2s;
+}
+
+a.platformCard:hover .platformName svg {
+  color: var(--color-accent);
+  transform: translate(2px, -2px);
+}
+
+.platformCount {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  font-family: var(--font-serif);
+  font-size: 46px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.platformOutOf {
+  color: var(--color-muted);
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  white-space: pre;
+}
+
+.platformUnit {
+  margin-left: 8px;
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 0;
+}
+
+.platformDetail {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  margin-top: auto;
+  padding-top: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.platformDetail i {
+  flex: none;
+  align-self: flex-start;
+  width: 7px;
+  height: 7px;
+  margin-top: 0.5em;
+  border-radius: 50%;
+  background: var(--rank);
+}
+
+.platformSubDetail {
+  margin-top: 4px;
+  color: var(--color-muted);
+  font-size: 11px;
+}
+
+.solvingNote {
+  margin-top: 14px;
+  color: var(--color-muted);
+  font-size: 11px;
 }
 
 .sectionHeading {
@@ -533,8 +676,17 @@
     font-size: 9px;
   }
 
-  .work, .writing {
+  .solving, .work, .writing {
     margin-top: 48px;
+  }
+
+  .platformGrid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  .platformCount {
+    font-size: 40px;
   }
 
   .projectCard {
@@ -674,6 +826,37 @@
     margin-bottom: 16px;
   }
 
+  .platformGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .platformGrid li:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  .platformCard {
+    padding: 18px 16px 20px;
+  }
+
+  .platformCount {
+    margin-top: 14px;
+    font-size: 38px;
+  }
+
+  .platformOutOf {
+    font-size: 19px;
+  }
+
+  .platformUnit {
+    width: 100%;
+    margin: 6px 0 0;
+  }
+
+  .platformDetail {
+    padding-top: 16px;
+  }
+
   .contact {
     padding: 28px 24px;
   }
@@ -703,11 +886,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .circle, .textLink svg {
+  .circle, .textLink svg, a.platformCard, .platformName svg {
     transition: none;
   }
 
-  .circle:hover, .textLink:hover svg {
+  .circle:hover, .textLink:hover svg, a.platformCard:hover, a.platformCard:hover .platformName svg {
     transform: none;
   }
 
