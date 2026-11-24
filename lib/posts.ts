@@ -27,13 +27,12 @@ export type Post = {
 
 export const posts: Post[] = [
   {
-    slug: "creating-my-second-pet-project-pt2",
-    title: "I mapped Astana’s shadows pt.2",
+    slug: "always-something-to-write-about",
+    title: "There is always something I am writing about",
     date: "2026-09-15",
     displayDate: "15 September 2026",
-    category: "Side Projects",
-    description:
-      "Finishing the project - learning new things on the way",
+    category: "Notes",
+    description: "Something new is on its way.",
     underConstruction: true,
   },
   {

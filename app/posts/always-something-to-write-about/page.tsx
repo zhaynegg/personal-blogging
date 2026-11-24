@@ -1,7 +1,7 @@
 import PostLayout from "@/components/PostLayout";
 import { getPost } from "@/lib/posts";
 
-const post = getPost("creating-my-second-pet-project-pt2");
+const post = getPost("always-something-to-write-about");
 
 export const metadata = {
   title: post.title,
